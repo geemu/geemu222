@@ -21,6 +21,7 @@ public class LogAspect {
 
     }
 
+    // 这边只能记录正常的日志，如果抛出异常则需要到底层记录
     @Around("pointcut()")
     public Object around(ProceedingJoinPoint point) throws Throwable {
         String methodName = point.getSignature().getDeclaringTypeName() + "." + point.getSignature().getName();
