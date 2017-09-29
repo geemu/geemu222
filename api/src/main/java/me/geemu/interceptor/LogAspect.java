@@ -12,8 +12,8 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public class ServiceAspect {
-    private static Logger logger = LoggerFactory.getLogger(ServiceAspect.class);
+public class LogAspect {
+    private static Logger logger = LoggerFactory.getLogger(LogAspect.class);
 
 
     @Pointcut("execution(* me.geemu.controller..*(..))")
@@ -34,6 +34,4 @@ public class ServiceAspect {
         logger.info(logSb.toString());
         return result;
     }
-
-
 }
