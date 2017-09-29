@@ -52,7 +52,7 @@ def getDbProperties = {
     }
     properties;
 }
-task mybatisGenerate << {
+task MybatisGenerate << {
     def properties = getDbProperties()
     ant.properties['targetProject'] = projectDir.path
     ant.properties['driverClass'] = properties.getProperty("jdbc.driverClassName")
