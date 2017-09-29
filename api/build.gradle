@@ -1,0 +1,7 @@
+description = "api"
+
+dependencies {
+    compile project(":core")
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-aop', version: '1.5.3.RELEASE'
+}
+

@@ -1,0 +1,88 @@
+description = "core"
+configurations {
+    mybatisGenerator
+}
+dependencies {
+
+    //自动生成MyBatis相关需要的依赖
+    mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.3.2'
+    mybatisGenerator 'mysql:mysql-connector-java:5.1.41'
+    mybatisGenerator 'tk.mybatis:mapper:3.3.9'
+
+    // 支持全栈式Web开发，包括Tomcat和spring-webmvc
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.5.3.RELEASE'
+
+    // mysql
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.41'
+
+    // druid连接池
+    compile group: 'com.alibaba', name: 'druid', version: '1.1.2'
+
+    // Redis
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '1.5.3.RELEASE'
+
+    // mybatis
+    compile group: 'org.mybatis.spring.boot', name: 'mybatis-spring-boot-starter', version: '1.3.1'
+
+    // tk.mybatis通用mapper
+    compile group: 'tk.mybatis', name: 'mapper', version: '3.3.9'
+
+    // 分页插件
+    compile group: 'com.github.pagehelper', name: 'pagehelper', version: '4.1.1'
+
+    // fastjson
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.38'
+
+    // 对象转换工具
+    compile group: 'net.sf.dozer', name: 'dozer', version: '5.5.1'
+
+    // swagger，用于生成restful风格的api文档
+    compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.7.0'
+    compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.7.0'
+
+}
+
+/**
+ * 使用MyBatis Generator 插件
+ */
+def getDbProperties = {
+    def properties = new Properties()
+    file("src/main/resources/generator/db_mysql.properties").withInputStream { inputStream ->
+        properties.load(inputStream)
+    }
+    properties;
+}
+task mybatisGenerate << {
+    def properties = getDbProperties()
+    ant.properties['targetProject'] = projectDir.path
+    ant.properties['driverClass'] = properties.getProperty("jdbc.driverClassName")
+    println ant.properties
+    ant.properties['connectionURL'] = properties.getProperty("jdbc.url")
+    ant.properties['userId'] = properties.getProperty("jdbc.user")
+    ant.properties['password'] = properties.getProperty("jdbc.password")
+    ant.properties['src_main_java'] = sourceSets.main.java.srcDirs[0].path
+    ant.properties['src_main_resources'] = sourceSets.main.resources.srcDirs[0].path
+    ant.properties['modelPackage'] = properties.getProperty("modelPackage")
+    ant.properties['mapperPackage'] = properties.getProperty("mapperPackage")
+    ant.properties['sqlMapperPackage'] = properties.getProperty("sqlMapperPackage")
+    ant.taskdef(
+            name: 'mbgenerator',
+            classname: 'org.mybatis.generator.ant.GeneratorAntTask',
+            classpath: configurations.mybatisGenerator.asPath
+    )
+    ant.mbgenerator(overwrite: true,
+            configfile: 'src/main/resources/generator/generatorConfig.xml', verbose: true) {
+        propertyset {
+            propertyref(name: 'targetProject')
+            propertyref(name: 'userId')
+            propertyref(name: 'driverClass')
+            propertyref(name: 'connectionURL')
+            propertyref(name: 'password')
+            propertyref(name: 'src_main_java')
+            propertyref(name: 'src_main_resources')
+            propertyref(name: 'modelPackage')
+            propertyref(name: 'mapperPackage')
+            propertyref(name: 'sqlMapperPackage')
+        }
+    }
+}

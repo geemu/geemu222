@@ -1,0 +1,51 @@
+# 端口号
+server:
+  port: 80
+  tomcat:
+    uri-encoding: UTF-8
+
+# 数据源
+spring:
+  # 数据库
+  datasource:
+    name: test
+    url: jdbc:mysql://127.0.0.1:3306/blog?serverTimezone=UTC&amp;characterEncoding=utf8&amp;useSSL=false
+    username: root
+    password: chen1436863821
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+  # redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+#    password: chen1436863821
+
+# 日志
+logging:
+    config: classpath:logback.xml
+
+# 自定义属性文件
+me:
+  geemu:
+    redis:
+            enable: true
+            lockFailureTime: 300
+            storageFailureTime: 12966000
+            spin: true
+            spinNum: 5
+            spinThreadTime: 400
+#设置cookie
+cookie:
+    domain: test.api.geemu.me
+
+# swagger开关 打开true/关闭false
+swagger:
+    enable: true
+
+
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'spring-boot'
+    group = 'me.geemu'
+    version = '1.0.0'
+}
+buildscript {
+    repositories {
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE")
+    }
+}
+
+subprojects {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+    repositories {
+        mavenLocal()
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        maven { url "http://repo.maven.apache.org/maven2" }
+    }
+    dependencies {
+        // 添加本地jar包
+        compile fileTree(dir: 'libs', include: ['*.jar'])
+        // lombok
+        compile group: 'org.projectlombok', name: 'lombok', version: '1.16.18'
+        // 单元测试
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+    }
+}
+configurations {
+    runtime.exclude group: "org.slf4j", module: "slf4j-log4j12"
+    compile.exclude group: "org.slf4j", module: "slf4j-log4j12"
+}

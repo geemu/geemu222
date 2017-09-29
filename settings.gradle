@@ -1,0 +1,4 @@
+rootProject.name = 'geemu'
+include 'core'
+include 'api'
+
