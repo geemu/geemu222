@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="me.geemu.persistence.dao.passtool.PasstoolUserInfoMapper" >
-  <resultMap id="BaseResultMap" type="me.geemu.persistence.entity.passtool.PasstoolUserInfo" >
+<mapper namespace="me.geemu.persistence.dao.BlogUserInfoMapper" >
+  <resultMap id="BaseResultMap" type="me.geemu.persistence.entity.BlogUserInfo" >
     <!--
       WARNING - @mbg.generated
     -->

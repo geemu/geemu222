@@ -1,6 +1,6 @@
-package me.geemu.persistence.dao.blog;
+package me.geemu.persistence.dao;
 
-import me.geemu.persistence.entity.blog.BlogUserInfo;
+import me.geemu.persistence.entity.BlogUserInfo;
 import me.geemu.util.MyMapper;
 
 public interface BlogUserInfoMapper extends MyMapper<BlogUserInfo> {

@@ -1,6 +1,6 @@
-package me.geemu.persistence.dao.passtool;
+package me.geemu.persistence.dao;
 
-import me.geemu.persistence.entity.passtool.PasstoolUserInfo;
+import me.geemu.persistence.entity.PasstoolUserInfo;
 import me.geemu.util.MyMapper;
 
 public interface PasstoolUserInfoMapper extends MyMapper<PasstoolUserInfo> {

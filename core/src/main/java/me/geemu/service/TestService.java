@@ -1,6 +1,10 @@
 package me.geemu.service;
 
 
+import me.geemu.persistence.entity.TestUserInfo;
+
+import java.util.List;
+
 /**
  * Author: 陈方明
  * Email: cfmmail@sina.com
@@ -9,11 +13,12 @@ package me.geemu.service;
  */
 public interface TestService {
     /**
-     * 返回用户token
+     * 测试异常
      *
-     * @param nickName
-     * @param password
+     * @param param
      * @return
      */
-    String queryUserByNickNameAndPassword(String nickName, String password);
+    String TestException(String param);
+
+    List<TestUserInfo> TestAll();
 }

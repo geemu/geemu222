@@ -1,4 +1,4 @@
-package me.geemu.persistence.entity.passtool;
+package me.geemu.persistence.entity;
 
 import java.util.Date;
 import javax.persistence.*;
