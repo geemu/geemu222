@@ -13,9 +13,9 @@ public enum BaseResponseEnum {
 
     DEFAULT_OK(200, "success"),
     DEFAULT_BUSINESS_ERROR(201, "error occured"),
-    DEFAULT_UNKNOW_ERROR(500, "后台未知系统异常，请联系开发小哥！"),
+    DEFAULT_UNKNOW_ERROR(500, "系统维护中"),
 
-    DEFAULT_TEST_ERROR(300, "测试异常");
+    DEFAULT_TEST_ERROR(300, "枚举异常");
     // 1000 授权相关
     // 2000 用户相关
     // 3000业务相关 4000 业务相关

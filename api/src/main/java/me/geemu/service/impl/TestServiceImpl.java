@@ -19,13 +19,13 @@ public class TestServiceImpl implements TestService {
     @Override
     public String queryUserByNickNameAndPassword(String nickName, String password) {
         if (nickName.equalsIgnoreCase("1")) {
-            throw new BusinessException("只有一个1");
+            throw new BusinessException("字符串异常");
         }
         if (nickName.equalsIgnoreCase("2")) {
             throw new BusinessException(BaseResponseEnum.DEFAULT_TEST_ERROR);
         }
         if (nickName.equalsIgnoreCase("3")) {
-            throw new RuntimeException("runtimeexception");
+            throw new RuntimeException("运行时异常");
         }
         return "803421";
 
