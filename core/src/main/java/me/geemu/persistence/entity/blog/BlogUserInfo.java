@@ -1,10 +1,10 @@
-package me.geemu.persistence.entity;
+package me.geemu.persistence.entity.blog;
 
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "test_user_info")
-public class TestUserInfo {
+@Table(name = "blog_user_info")
+public class BlogUserInfo {
     /**
      * 普通会员id
      */

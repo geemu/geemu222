@@ -2,9 +2,9 @@ package me.geemu.controller.Test;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import me.geemu.persistence.entity.TestUserInfo;
+import me.geemu.persistence.entity.test.TestUserInfo;
 import me.geemu.util.BaseResponse;
-import me.geemu.service.TestService;
+import me.geemu.service.test.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

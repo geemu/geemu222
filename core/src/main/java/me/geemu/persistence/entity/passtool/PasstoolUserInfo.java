@@ -1,10 +1,10 @@
-package me.geemu.persistence.entity;
+package me.geemu.persistence.entity.passtool;
 
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "blog_user_info")
-public class BlogUserInfo {
+@Table(name = "passtool_user_info")
+public class PasstoolUserInfo {
     /**
      * 普通会员id
      */
