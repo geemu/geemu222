@@ -1,5 +1,6 @@
 package me.geemu.exception;
 
+import com.alibaba.fastjson.JSON;
 import me.geemu.enumerate.BaseResponseEnum;
 import me.geemu.util.BaseResponse;
 import org.slf4j.Logger;
@@ -28,10 +29,11 @@ public class ExceptionInterceptor {
         response.setCode(BaseResponseEnum.DEFAULT_BUSINESS_ERROR.getCode());
         if (be.getCode() == null) {
             response.setMessage(be.getMessage());
-            return response;
+        } else {
+            response.setCode(be.getCode());
+            response.setMessage(be.getMessage());
         }
-        response.setCode(be.getCode());
-        response.setMessage(be.getMessage());
+        logger.info(String.format("[ResponseBody]\t%s\r", JSON.toJSONString(response)));
         return response;
     }
 
