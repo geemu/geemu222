@@ -1,7 +1,7 @@
-package me.geemu.service.test;
+package me.geemu.service;
 
 
-import me.geemu.persistence.entity.test.TestUserInfo;
+import me.geemu.persistence.entity.TestUserInfo;
 
 import java.util.List;
 

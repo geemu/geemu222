@@ -1,6 +1,6 @@
-package me.geemu.persistence.dao.test;
+package me.geemu.persistence.dao;
 
-import me.geemu.persistence.entity.test.TestUserInfo;
+import me.geemu.persistence.entity.TestUserInfo;
 import me.geemu.util.MyMapper;
 
 import java.util.List;

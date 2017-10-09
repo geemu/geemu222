@@ -1,15 +1,14 @@
 package me.geemu.controller.Test;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import me.geemu.persistence.entity.test.TestUserInfo;
+import me.geemu.persistence.entity.TestUserInfo;
 import me.geemu.util.BaseResponse;
-import me.geemu.service.test.TestService;
+import me.geemu.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -40,6 +39,18 @@ public class TestController {
     public BaseResponse<List<TestUserInfo>> TestAll() {
         BaseResponse<List<TestUserInfo>> response = new BaseResponse<>();
         response.setContent(testSertvice.TestAll());
+        return response;
+    }
+
+
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "Authorization", value = "token", required = true, dataType = "String", paramType = "header")
+    })
+    @ApiOperation(value = "登录删除", notes = "登录删除", response = boolean.class)
+    @DeleteMapping("/delete")
+    public BaseResponse<Boolean> TestDelete() {
+        BaseResponse<Boolean> response = new BaseResponse<>();
+        response.setContent(true);
         return response;
     }
 }

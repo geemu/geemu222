@@ -1,10 +1,10 @@
-package me.geemu.service.test.test;
+package me.geemu.service.impl;
 
 import me.geemu.enumerate.BaseResponseEnum;
 import me.geemu.exception.BusinessException;
-import me.geemu.persistence.dao.test.TestUserInfoMapper;
-import me.geemu.persistence.entity.test.TestUserInfo;
-import me.geemu.service.test.TestService;
+import me.geemu.persistence.dao.TestUserInfoMapper;
+import me.geemu.persistence.entity.TestUserInfo;
+import me.geemu.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
