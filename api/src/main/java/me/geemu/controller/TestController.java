@@ -1,4 +1,4 @@
-package me.geemu.controller.Test;
+package me.geemu.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -44,13 +44,21 @@ public class TestController {
 
 
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "Authorization", value = "token", required = true, dataType = "String", paramType = "header")
+            @ApiImplicitParam(name = "token", value = "token", required = true, dataType = "String", paramType = "header")
     })
     @ApiOperation(value = "登录删除", notes = "登录删除", response = boolean.class)
     @DeleteMapping("/delete")
     public BaseResponse<Boolean> TestDelete() {
         BaseResponse<Boolean> response = new BaseResponse<>();
         response.setContent(true);
+        return response;
+    }
+
+    @ApiOperation(value = "测试登录", notes = "测试登录", response = String.class)
+    @PostMapping("/login")
+    public BaseResponse<String> TestLogin(@RequestParam("nickName") String nickName, @RequestParam("password") String password) {
+        BaseResponse<String> response = new BaseResponse<>();
+        response.setContent(testSertvice.TestLogin(nickName, password));
         return response;
     }
 }

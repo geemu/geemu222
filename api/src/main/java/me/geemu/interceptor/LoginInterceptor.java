@@ -16,7 +16,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String currentUser = request.getHeader("Authorization");
+        String currentUser = request.getHeader("token");
         request.setAttribute("userId", redisService.getLoginUser(currentUser).getId());
         return true;
     }

@@ -13,6 +13,7 @@ public enum BaseResponseEnum {
 
     DEFAULT_OK(200, "success"),
     DEFAULT_PLEASE_LOGIN(401, "请登录"),
+    DEAFULT_LOGIN_ERROR(701, "用户名或密码错误"),
     DEFAULT_BUSINESS_ERROR(201, "error occured"),
     DEFAULT_UNKNOW_ERROR(500, "系统维护中"),
 

@@ -24,7 +24,7 @@ public class RedisServiceImpl implements RedisService {
      */
     @Override
     public boolean isUserLogin(String token) {
-        return redisUtil.exists("login_user:" + token);
+        return redisUtil.exists("login_User:" + token);
     }
 
     /**
@@ -35,11 +35,12 @@ public class RedisServiceImpl implements RedisService {
      */
     @Override
     public TestUserInfo getLoginUser(String token) {
-        if (!isUserLogin(token)) {
+        if (isUserLogin(token) == false) {
             throw new BusinessException(BaseResponseEnum.DEFAULT_PLEASE_LOGIN);
         }
-        String key = "login_user:" + token;
-        return (TestUserInfo) redisUtil.get(key);
+        String key = "login_User:" + token;
+        TestUserInfo loginUser = (TestUserInfo) redisUtil.get(key);
+        return loginUser;
     }
 
 }

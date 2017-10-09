@@ -20,5 +20,17 @@ public interface TestService {
      */
     String TestException(String param);
 
+    /**
+     * 查询所有
+     *
+     * @return
+     */
     List<TestUserInfo> TestAll();
+
+    /**
+     * 测试登录
+     *
+     * @return
+     */
+    String TestLogin(String nickName, String password);
 }

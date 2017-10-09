@@ -16,8 +16,7 @@ public class WebAppConfigurer extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(allRequestInterceptor).addPathPatterns("/**")
-                .excludePathPatterns("/swagger-resources/**/**");
+        registry.addInterceptor(allRequestInterceptor).addPathPatterns("/**");
         registry.addInterceptor(loginInterceptor)
                 .addPathPatterns("/test/delete")
 

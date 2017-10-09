@@ -1,14 +1,19 @@
 package me.geemu.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import me.geemu.enumerate.BaseResponseEnum;
 import me.geemu.exception.BusinessException;
 import me.geemu.persistence.dao.TestUserInfoMapper;
 import me.geemu.persistence.entity.TestUserInfo;
 import me.geemu.service.TestService;
+import me.geemu.util.RedisUtil;
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
+import java.util.UUID;
 
 
 /**
@@ -21,7 +26,11 @@ import java.util.List;
 public class TestServiceImpl implements TestService {
 
     @Autowired
+    RedisUtil redisUtil;
+
+    @Autowired
     private TestUserInfoMapper testUserInfoMapper;
+
     /**
      * 测试异常
      *
@@ -43,8 +52,35 @@ public class TestServiceImpl implements TestService {
 
     }
 
+    /**
+     * 查询所有
+     *
+     * @return
+     */
     @Override
     public List<TestUserInfo> TestAll() {
         return testUserInfoMapper.selectAllTestUserInfo();
+    }
+
+    /**
+     * 测试登录
+     *
+     * @return
+     */
+    @Override
+    public String TestLogin(String nickName, String password) {
+        Example example = new Example(TestUserInfo.class);
+        example.createCriteria()
+                .andEqualTo("nickName", nickName)
+                .andEqualTo("password", password)
+        ;
+        List<TestUserInfo> exists = testUserInfoMapper.selectByExample(example);
+        if (CollectionUtils.isEmpty(exists)) {
+            throw new BusinessException(BaseResponseEnum.DEAFULT_LOGIN_ERROR);
+        }
+        String token = UUID.randomUUID().toString().replace("-", "");
+        int expireTime = 60 * 60 * 24 * 7;
+        redisUtil.put("login_User:" + token, exists.get(0), (long) expireTime);
+        return token;
     }
 }
