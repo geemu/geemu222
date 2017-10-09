@@ -28,11 +28,15 @@
         <javaClientGenerator targetPackage="${mapperPackage}" targetProject="${src_main_java}" type="XMLMAPPER"/>
 
 
-        <table schema="blog" tableName="blog_user_info" domainObjectName="BlogUserInfo">
-            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
-        </table>
+        <!--<table schema="geemu" tableName="blog_user_info" domainObjectName="BlogUserInfo">-->
+            <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
+        <!--</table>-->
 
-        <table schema="blog" tableName="passtool_user_info" domainObjectName="PasstoolUserInfo">
+        <!--<table schema="geemu" tableName="passtool_user_info" domainObjectName="PasstoolUserInfo">-->
+            <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
+        <!--</table>-->
+
+        <table schema="geemu" tableName="test_user_info" domainObjectName="TestUserInfo">
             <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
         </table>
 
