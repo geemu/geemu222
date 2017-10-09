@@ -1,4 +1,4 @@
-package me.geemu.service.impl.test;
+package me.geemu.service.test.test;
 
 import me.geemu.enumerate.BaseResponseEnum;
 import me.geemu.exception.BusinessException;

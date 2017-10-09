@@ -21,7 +21,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("test")
-@Api(description = "用户")
+@Api(description = "测试")
 public class TestController {
 
     @Autowired

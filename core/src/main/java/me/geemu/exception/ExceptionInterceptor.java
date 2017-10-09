@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class ExceptionInterceptor {
     private static final Logger logger = LoggerFactory.getLogger(ExceptionInterceptor.class);
 
-    private static final boolean DEFAULT_STATUS_ERROR = false;
-
     /**
      * 自定义异常
      *
