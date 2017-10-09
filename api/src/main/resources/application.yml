@@ -18,6 +18,12 @@ spring:
   redis:
     host: 127.0.0.1
     port: 6379
+    enable: true
+    lockFailureTime: 300
+    storageFailureTime: 12966000
+    spin: true
+    spinNum: 5
+    spinThreadTime: 400
 #    password: chen1436863821
 
 # 日志

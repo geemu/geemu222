@@ -12,6 +12,7 @@ import lombok.Getter;
 public enum BaseResponseEnum {
 
     DEFAULT_OK(200, "success"),
+    DEFAULT_PLEASE_LOGIN(401, "请登录"),
     DEFAULT_BUSINESS_ERROR(201, "error occured"),
     DEFAULT_UNKNOW_ERROR(500, "系统维护中"),
 

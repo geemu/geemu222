@@ -16,12 +16,13 @@ public class WebAppConfigurer extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(allRequestInterceptor).addPathPatterns("/**");
+        registry.addInterceptor(allRequestInterceptor).addPathPatterns("/**")
+                .excludePathPatterns("/swagger-resources/**/**");
         registry.addInterceptor(loginInterceptor)
-                .addPathPatterns("/test/**")
+                .addPathPatterns("/test/delete")
 
-                //排除这些路径
-                .excludePathPatterns("/test/delete")
+//                //排除这些路径
+//                .excludePathPatterns("/test/")
         ;
         super.addInterceptors(registry);
     }

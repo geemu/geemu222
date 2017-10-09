@@ -25,7 +25,6 @@ public class BaseResponse<T> implements Serializable {
     public BaseResponse() {
         this.code = BaseResponseEnum.DEFAULT_OK.getCode();
         this.message = BaseResponseEnum.DEFAULT_OK.getMessage();
-//        this.content = (T) "";
     }
 
     public BaseResponse(BaseResponseEnum baseResponseEnum, T content) {

@@ -1,8 +1,10 @@
 package me.geemu.interceptor;
 
+import me.geemu.util.RedisUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -10,11 +12,16 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
 import java.util.UUID;
 
 @Component
 public class AllRequestInterceptor extends HandlerInterceptorAdapter {
     Logger logger = LoggerFactory.getLogger(getClass());
+
+    @Autowired
+    RedisUtil redisUtil;
+
     @Value("${cookie.domain}")
     private String cookieDomain;
 
@@ -44,6 +51,7 @@ public class AllRequestInterceptor extends HandlerInterceptorAdapter {
             cookie.setPath("/");
             cookie.setMaxAge(expireTime);
             response.addCookie(cookie);
+            redisUtil.put("visitor:" + token, null, (long) expireTime);
         }
         return true;
     }
