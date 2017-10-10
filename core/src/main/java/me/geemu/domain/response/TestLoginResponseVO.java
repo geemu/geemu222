@@ -9,7 +9,6 @@ import lombok.Data;
  * Description:
  */
 @Data
-public class LoginResponseVO {
-
+public class TestLoginResponseVO {
     private String token;
 }

@@ -1,7 +1,7 @@
 package me.geemu.service;
 
 
-import me.geemu.domain.response.LoginResponseVO;
+import me.geemu.domain.response.TestLoginResponseVO;
 import me.geemu.persistence.entity.TestUserInfo;
 
 import java.util.List;
@@ -33,5 +33,5 @@ public interface TestService {
      *
      * @return
      */
-    LoginResponseVO TestLogin(String nickName, String password);
+    TestLoginResponseVO TestLogin(String nickName, String password);
 }

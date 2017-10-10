@@ -3,7 +3,8 @@ package me.geemu.persistence.entity;
 import java.util.Date;
 import javax.persistence.*;
 
-public class pass_tool_user_info {
+@Table(name = "pass_tool_user_info")
+public class PassToolUseInfo {
     /**
      * 账号管理 用户表
      */

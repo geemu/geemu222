@@ -34,16 +34,16 @@
 
 
         <!--密码管理工具-->
-        <!--&lt;!&ndash;账号&ndash;&gt;-->
+        <!--账号-->
         <!--<table schema="geemu" tableName="pass_tool_account" domainObjectName="PassToolAccount">-->
         <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
         <!--</table>-->
         <!--&lt;!&ndash;分类&ndash;&gt;-->
-        <!--<table schema="geemu" tableName="pass_tool_assortment" domainObjectName="pass_tool_assortment">-->
+        <!--<table schema="geemu" tableName="pass_tool_assortment" domainObjectName="PassToolAssortment">-->
         <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
         <!--</table>-->
         <!--&lt;!&ndash;用户&ndash;&gt;-->
-        <!--<table schema="geemu" tableName="pass_tool_user_info" domainObjectName="pass_tool_user_info">-->
+        <!--<table schema="geemu" tableName="pass_tool_user_info" domainObjectName="PassToolUseInfo">-->
         <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
         <!--</table>-->
 

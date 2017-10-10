@@ -3,10 +3,10 @@ package me.geemu.persistence.entity;
 import java.util.Date;
 import javax.persistence.*;
 
-@Table(name = "pass_tool_account")
-public class PassToolAccount {
+@Table(name = "pass_tool_assortment")
+public class PassToolAssortment {
     /**
-     * 账号管理 账号表
+     * 账号管理 分类表
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,24 +19,10 @@ public class PassToolAccount {
     private Long userId;
 
     /**
-     * 账号
+     * 分类名称
      */
-    private String account;
-
-    /**
-     * 密码
-     */
-    private String password;
-
-    /**
-     * 账号分类
-     */
-    private Long assortment;
-
-    /**
-     * 备注
-     */
-    private String remark;
+    @Column(name = "assortment_name")
+    private String assortmentName;
 
     /**
      * 排序
@@ -80,18 +66,18 @@ public class PassToolAccount {
     private byte[] updateId;
 
     /**
-     * 获取账号管理 账号表
+     * 获取账号管理 分类表
      *
-     * @return id - 账号管理 账号表
+     * @return id - 账号管理 分类表
      */
     public Long getId() {
         return id;
     }
 
     /**
-     * 设置账号管理 账号表
+     * 设置账号管理 分类表
      *
-     * @param id 账号管理 账号表
+     * @param id 账号管理 分类表
      */
     public void setId(Long id) {
         this.id = id;
@@ -116,75 +102,21 @@ public class PassToolAccount {
     }
 
     /**
-     * 获取账号
+     * 获取分类名称
      *
-     * @return account - 账号
+     * @return assortment_name - 分类名称
      */
-    public String getAccount() {
-        return account;
+    public String getAssortmentName() {
+        return assortmentName;
     }
 
     /**
-     * 设置账号
+     * 设置分类名称
      *
-     * @param account 账号
+     * @param assortmentName 分类名称
      */
-    public void setAccount(String account) {
-        this.account = account;
-    }
-
-    /**
-     * 获取密码
-     *
-     * @return password - 密码
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * 设置密码
-     *
-     * @param password 密码
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    /**
-     * 获取账号分类
-     *
-     * @return assortment - 账号分类
-     */
-    public Long getAssortment() {
-        return assortment;
-    }
-
-    /**
-     * 设置账号分类
-     *
-     * @param assortment 账号分类
-     */
-    public void setAssortment(Long assortment) {
-        this.assortment = assortment;
-    }
-
-    /**
-     * 获取备注
-     *
-     * @return remark - 备注
-     */
-    public String getRemark() {
-        return remark;
-    }
-
-    /**
-     * 设置备注
-     *
-     * @param remark 备注
-     */
-    public void setRemark(String remark) {
-        this.remark = remark;
+    public void setAssortmentName(String assortmentName) {
+        this.assortmentName = assortmentName;
     }
 
     /**
