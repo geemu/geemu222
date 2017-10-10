@@ -24,7 +24,7 @@ public class RedisServiceImpl implements RedisService {
      */
     @Override
     public boolean isUserLogin(String token) {
-        boolean result = redisUtil.exists("login_User:" + token);
+        boolean result = redisUtil.isExistsKey("login_User:" + token);
         if (result == false) {
             throw new BusinessException(BaseResponseEnum.DEFAULT_PLEASE_LOGIN);
         }

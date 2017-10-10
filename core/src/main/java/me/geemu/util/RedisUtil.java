@@ -1,15 +1,12 @@
 package me.geemu.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 @Component
@@ -18,12 +15,12 @@ public final class RedisUtil {
     private RedisTemplate redisTemplate;
 
     /**
-     * 是否有对应的value
+     * 是否有对应的键
      *
      * @param key
      * @return
      */
-    public boolean isExistsValue(final String key) {
+    public boolean isExistsKey(final String key) {
         boolean exist = false;
         exist = redisTemplate.hasKey(key);
         return exist;
