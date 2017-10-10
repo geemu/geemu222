@@ -58,7 +58,8 @@ public class TestController {
     @PostMapping("/login")
     public BaseResponse<String> TestLogin(@RequestParam("nickName") String nickName, @RequestParam("password") String password) {
         BaseResponse<String> response = new BaseResponse<>();
-        response.setContent(testSertvice.TestLogin(nickName, password));
+        String token = testSertvice.TestLogin(nickName, password);
+        response.setContent(token);
         return response;
     }
 }

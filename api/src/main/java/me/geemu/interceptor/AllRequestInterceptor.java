@@ -53,7 +53,7 @@ public class AllRequestInterceptor extends HandlerInterceptorAdapter {
             cookie.setPath("/");
             cookie.setMaxAge(expireTime);
             response.addCookie(cookie);
-            redisUtil.put("visitor:" + token, null, (long) expireTime);
+//            redisUtil.put("visitor:" + token, null, (long) expireTime);
         }
         logSb.append(String.format("[ResponseHeader]\t%s\r\n", response.getHeader("token")));
         logger.info(logSb.toString());
