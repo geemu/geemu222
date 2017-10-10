@@ -27,18 +27,25 @@
         <sqlMapGenerator targetPackage="${sqlMapperPackage}" targetProject="${src_main_resources}"/>
         <javaClientGenerator targetPackage="${mapperPackage}" targetProject="${src_main_java}" type="XMLMAPPER"/>
 
-
-        <!--<table schema="geemu" tableName="blog_user_info" domainObjectName="BlogUserInfo">-->
-            <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
+        <!--测试表-->
+        <!--<table schema="geemu" tableName="test_user_info" domainObjectName="TestUserInfo">-->
+        <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
         <!--</table>-->
 
-        <!--<table schema="geemu" tableName="passtool_user_info" domainObjectName="PasstoolUserInfo">-->
-            <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
-        <!--</table>-->
 
-        <table schema="geemu" tableName="test_user_info" domainObjectName="TestUserInfo">
-            <generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>
-        </table>
+        <!--密码管理工具-->
+        <!--&lt;!&ndash;账号&ndash;&gt;-->
+        <!--<table schema="geemu" tableName="pass_tool_account" domainObjectName="PassToolAccount">-->
+        <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
+        <!--</table>-->
+        <!--&lt;!&ndash;分类&ndash;&gt;-->
+        <!--<table schema="geemu" tableName="pass_tool_assortment" domainObjectName="pass_tool_assortment">-->
+        <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
+        <!--</table>-->
+        <!--&lt;!&ndash;用户&ndash;&gt;-->
+        <!--<table schema="geemu" tableName="pass_tool_user_info" domainObjectName="pass_tool_user_info">-->
+        <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
+        <!--</table>-->
 
     </context>
 </generatorConfiguration>
