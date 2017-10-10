@@ -56,7 +56,6 @@ task MybatisGenerate << {
     def properties = getDbProperties()
     ant.properties['targetProject'] = projectDir.path
     ant.properties['driverClass'] = properties.getProperty("jdbc.driverClassName")
-    println ant.properties
     ant.properties['connectionURL'] = properties.getProperty("jdbc.url")
     ant.properties['userId'] = properties.getProperty("jdbc.user")
     ant.properties['password'] = properties.getProperty("jdbc.password")
