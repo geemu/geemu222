@@ -1,6 +1,5 @@
 package me.geemu.exception;
 
-import com.alibaba.fastjson.JSON;
 import me.geemu.enumerate.BaseResponseEnum;
 import me.geemu.util.BaseResponse;
 import org.slf4j.Logger;
