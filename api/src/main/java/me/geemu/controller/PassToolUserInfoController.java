@@ -3,7 +3,6 @@ package me.geemu.controller;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import me.geemu.domain.response.PassToolLoginResponseVO;
-import me.geemu.domain.response.TestLoginResponseVO;
 import me.geemu.service.PassToolUserInfoService;
 import me.geemu.util.BaseResponse;
 import org.springframework.beans.factory.annotation.Autowired;
