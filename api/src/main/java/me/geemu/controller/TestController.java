@@ -4,6 +4,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import me.geemu.domain.response.LoginResponseVO;
 import me.geemu.persistence.entity.TestUserInfo;
 import me.geemu.util.BaseResponse;
 import me.geemu.service.TestService;
@@ -54,12 +55,11 @@ public class TestController {
         return response;
     }
 
-    @ApiOperation(value = "测试登录", notes = "测试登录", response = String.class)
+    @ApiOperation(value = "测试登录", notes = "测试登录", response = LoginResponseVO.class)
     @PostMapping("/login")
-    public BaseResponse<String> TestLogin(@RequestParam("nickName") String nickName, @RequestParam("password") String password) {
-        BaseResponse<String> response = new BaseResponse<>();
-        String token = testSertvice.TestLogin(nickName, password);
-        response.setContent(token);
+    public BaseResponse<LoginResponseVO> TestLogin(@RequestParam("nickName") String nickName, @RequestParam("password") String password) {
+        BaseResponse<LoginResponseVO> response = new BaseResponse<>();
+        response.setContent(testSertvice.TestLogin(nickName, password));
         return response;
     }
 }

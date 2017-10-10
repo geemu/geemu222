@@ -30,7 +30,6 @@ public class AllRequestInterceptor extends HandlerInterceptorAdapter {
         String currentUser = request.getHeader("token");
         StringBuilder logSb = new StringBuilder("\r\n");
         logSb.append(String.format("[RequestURL]\t%s\r\n", request.getRequestURI()));
-        logSb.append(String.format("[RequestCookies]\t%s\r\n", JSONArray.toJSONString(request.getCookies())));
         Cookie[] cookies = request.getCookies();
         boolean hasCookie = false;
         if (cookies != null && cookies.length > 0) {
@@ -53,9 +52,7 @@ public class AllRequestInterceptor extends HandlerInterceptorAdapter {
             cookie.setPath("/");
             cookie.setMaxAge(expireTime);
             response.addCookie(cookie);
-//            redisUtil.put("visitor:" + token, null, (long) expireTime);
         }
-        logSb.append(String.format("[ResponseHeader]\t%s\r\n", response.getHeader("token")));
         logger.info(logSb.toString());
         return true;
     }

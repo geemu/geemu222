@@ -1,6 +1,7 @@
 package me.geemu.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import me.geemu.domain.response.LoginResponseVO;
 import me.geemu.enumerate.BaseResponseEnum;
 import me.geemu.exception.BusinessException;
 import me.geemu.persistence.dao.TestUserInfoMapper;
@@ -68,7 +69,7 @@ public class TestServiceImpl implements TestService {
      * @return
      */
     @Override
-    public String TestLogin(String nickName, String password) {
+    public LoginResponseVO TestLogin(String nickName, String password) {
         Example example = new Example(TestUserInfo.class);
         example.createCriteria()
                 .andEqualTo("nickName", nickName)
@@ -81,6 +82,8 @@ public class TestServiceImpl implements TestService {
         String token = UUID.randomUUID().toString().replace("-", "");
         int expireTime = 60 * 60 * 24 * 7;
         redisUtil.put("login_User:" + token, exists.get(0), (long) expireTime);
-        return token;
+        LoginResponseVO response = new LoginResponseVO();
+        response.setToken(token);
+        return response;
     }
 }
