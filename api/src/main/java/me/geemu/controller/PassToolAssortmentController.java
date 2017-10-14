@@ -5,9 +5,12 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import me.geemu.service.PassToolAssortmentService;
+import me.geemu.service.RedisService;
 import me.geemu.util.BaseResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Author: 陈方明
@@ -23,15 +26,19 @@ public class PassToolAssortmentController {
     @Autowired
     private PassToolAssortmentService passToolAssortmentService;
 
+    @Autowired
+    private RedisService redisService;
+
 
     @ApiImplicitParams({
             @ApiImplicitParam(name = "token", value = "token", required = true, dataType = "String", paramType = "header")
     })
     @ApiOperation(value = "获取用户分类集合", notes = "获取用户分类集合", response = String.class)
     @GetMapping("/list")
-    public BaseResponse<String> GetAssortmentList(@RequestHeader("token") String token) {
-        BaseResponse<String> response = new BaseResponse<>();
-        System.out.println("用户token为：" + token);
+    public BaseResponse<List<String>> GetAssortmentList(@RequestHeader("token") String token) {
+        BaseResponse<List<String>> response = new BaseResponse<>();
+        Long userId = redisService.GetPassToolLoginUser(token).getId();
+        response.setContent(passToolAssortmentService.GetUserAssortmentList(userId));
         return response;
     }
 

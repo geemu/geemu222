@@ -33,18 +33,18 @@
         <!--</table>-->
 
 
-        <!--密码管理工具-->
-        <!--账号-->
+        <!--&lt;!&ndash;密码管理工具&ndash;&gt;-->
+        <!--&lt;!&ndash;账号&ndash;&gt;-->
         <!--<table schema="geemu" tableName="pass_tool_account" domainObjectName="PassToolAccount">-->
-        <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
+            <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
         <!--</table>-->
         <!--&lt;!&ndash;分类&ndash;&gt;-->
         <!--<table schema="geemu" tableName="pass_tool_assortment" domainObjectName="PassToolAssortment">-->
-        <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
+            <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
         <!--</table>-->
         <!--&lt;!&ndash;用户&ndash;&gt;-->
-        <!--<table schema="geemu" tableName="pass_tool_user_info" domainObjectName="PassToolUseInfo">-->
-        <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
+        <!--<table schema="geemu" tableName="pass_tool_user_info" domainObjectName="PassToolUserInfo">-->
+            <!--<generatedKey column="id" sqlStatement="SELECT LAST_INSERT_ID()" identity="true"/>-->
         <!--</table>-->
 
     </context>

@@ -1,5 +1,7 @@
 package me.geemu.service;
 
+import java.util.List;
+
 /**
  * Author: 陈方明
  * Email: cfmmail@sina.com
@@ -7,4 +9,12 @@ package me.geemu.service;
  * Description:
  */
 public interface PassToolAssortmentService {
+
+    /**
+     * 获取用户名下所有的账号分类
+     *
+     * @param userId
+     * @return
+     */
+    List<String> GetUserAssortmentList(Long userId);
 }

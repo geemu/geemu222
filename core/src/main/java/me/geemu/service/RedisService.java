@@ -1,6 +1,7 @@
 package me.geemu.service;
 
 
+import me.geemu.persistence.entity.PassToolUserInfo;
 import me.geemu.persistence.entity.TestUserInfo;
 
 public interface RedisService {
@@ -20,4 +21,12 @@ public interface RedisService {
      * @return
      */
     TestUserInfo getLoginUser(String token);
+
+    /**
+     * 获取登录用户
+     *
+     * @param token
+     * @return
+     */
+    PassToolUserInfo GetPassToolLoginUser(String token);
 }

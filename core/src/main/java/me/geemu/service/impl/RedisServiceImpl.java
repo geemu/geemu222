@@ -2,6 +2,7 @@ package me.geemu.service.impl;
 
 import me.geemu.enumerate.BaseResponseEnum;
 import me.geemu.exception.BusinessException;
+import me.geemu.persistence.entity.PassToolUserInfo;
 import me.geemu.persistence.entity.TestUserInfo;
 import me.geemu.service.RedisService;
 import me.geemu.util.RedisUtil;
@@ -42,6 +43,20 @@ public class RedisServiceImpl implements RedisService {
         isUserLogin(token);
         String key = "login_User:" + token;
         TestUserInfo loginUser = (TestUserInfo) redisUtil.get(key);
+        return loginUser;
+    }
+
+    /**
+     * 获取登录用户
+     *
+     * @param token
+     * @return
+     */
+    @Override
+    public PassToolUserInfo GetPassToolLoginUser(String token) {
+        isUserLogin(token);
+        String key = "login_User:" + token;
+        PassToolUserInfo loginUser = (PassToolUserInfo) redisUtil.get(key);
         return loginUser;
     }
 

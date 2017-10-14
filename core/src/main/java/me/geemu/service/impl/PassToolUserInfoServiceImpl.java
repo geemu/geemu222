@@ -4,7 +4,7 @@ import me.geemu.domain.response.PassToolLoginResponseVO;
 import me.geemu.enumerate.BaseResponseEnum;
 import me.geemu.exception.BusinessException;
 import me.geemu.persistence.dao.PassToolUserInfoMapper;
-import me.geemu.persistence.entity.PassToolUseInfo;
+import me.geemu.persistence.entity.PassToolUserInfo;
 import me.geemu.service.PassToolUserInfoService;
 import me.geemu.util.RedisUtil;
 import org.apache.commons.collections.CollectionUtils;
@@ -39,14 +39,14 @@ public class PassToolUserInfoServiceImpl implements PassToolUserInfoService {
      */
     @Override
     public PassToolLoginResponseVO PassToolLoginByAccount(String account, String password) {
-        Example example = new Example(PassToolUseInfo.class);
+        Example example = new Example(PassToolUserInfo.class);
         example.createCriteria()
                 .andEqualTo("account", account)
                 .andEqualTo("password", password)
                 .andEqualTo("isValid", true)
                 .andEqualTo("isDelete", false)
         ;
-        List<PassToolUseInfo> exists = passToolUserInfoDao.selectByExample(example);
+        List<PassToolUserInfo> exists = passToolUserInfoDao.selectByExample(example);
         if (CollectionUtils.isEmpty(exists)) {
             throw new BusinessException(BaseResponseEnum.DEAFULT_LOGIN_ERROR);
         }
