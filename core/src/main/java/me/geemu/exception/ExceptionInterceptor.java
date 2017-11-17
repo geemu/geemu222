@@ -8,12 +8,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
- * 全局异常拦截器
+ * 全局异常拦截器 对异常进行封装
  */
 @RestControllerAdvice
 public class ExceptionInterceptor {
-    private static final Logger logger = LoggerFactory.getLogger(ExceptionInterceptor.class);
-
     /**
      * 自定义异常
      *
@@ -34,12 +32,10 @@ public class ExceptionInterceptor {
     /**
      * 其他异常
      *
-     * @param e
      * @return
      */
     @ExceptionHandler(Exception.class)
-    public BaseResponse<Object> handleAllException(Exception e) {
-        logger.error("[后台未知异常，请联系开发小哥]", e);
+    public BaseResponse<Object> handleAllException() {
         BaseResponse<Object> response = new BaseResponse<Object>();
         response.setCode(BaseResponseEnum.DEFAULT_UNKNOW_ERROR.getCode());
         response.setMessage(BaseResponseEnum.DEFAULT_UNKNOW_ERROR.getMessage());
