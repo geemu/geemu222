@@ -1,6 +1,5 @@
 package me.geemu.interceptor;
 
-import com.alibaba.fastjson.JSONArray;
 import me.geemu.util.RedisUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -28,8 +27,6 @@ public class AllRequestInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String currentUser = request.getHeader("token");
-        StringBuilder logSb = new StringBuilder("\r\n");
-        logSb.append(String.format("[RequestURL]\t%s\r\n", request.getRequestURI()));
         Cookie[] cookies = request.getCookies();
         boolean hasCookie = false;
         if (cookies != null && cookies.length > 0) {
@@ -53,7 +50,6 @@ public class AllRequestInterceptor extends HandlerInterceptorAdapter {
             cookie.setMaxAge(expireTime);
             response.addCookie(cookie);
         }
-        logger.info(logSb.toString());
         return true;
     }
 }
